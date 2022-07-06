@@ -1,6 +1,7 @@
 <div>
   <p>{{name}}</p>
   <div class="menu-container" (contextmenu)="showMenu($event, 0)">0ms</div>
+  <div class="menu-container" (contextmenu)="showMenu($event, 250)">250ms</div>
   <div class="menu-container" (contextmenu)="showMenu($event, 500)">500ms</div>
   <div class="menu-container" (contextmenu)="showMenu($event, 1000)">
     1000ms
