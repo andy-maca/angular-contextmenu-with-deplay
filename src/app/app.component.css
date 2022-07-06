@@ -1,0 +1,31 @@
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 100px;
+  background-color: black;
+  color: white;
+  margin: 10px;
+}
+
+.contextmenu {
+  position: fixed;
+  z-index: 999;
+  background-color: wheat;
+  padding: 5px;
+}
+
+.contextmenu ul {
+  list-style: none;
+  padding-inline-start: 0;
+  margin: 0;
+}
+
+.contextmenu ul li {
+  padding: 2px;
+}
+
+.contextmenu ul li:hover {
+  background-color: gray;
+}
