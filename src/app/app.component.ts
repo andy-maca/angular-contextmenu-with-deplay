@@ -2,7 +2,6 @@ import {
   Component,
   ElementRef,
   HostListener,
-  VERSION,
   ViewChild,
 } from '@angular/core';
 
@@ -14,7 +13,7 @@ import {
 export class AppComponent {
   name = 'Right click on the black rectangle to show context menu';
   show = false;
-  delayStarted = false;
+  loaded = false;
   private timerId;
 
   @HostListener('window:click', ['$event'])
@@ -24,20 +23,19 @@ export class AppComponent {
     }
   }
 
-  @ViewChild('contextMenu', { static: true })
+  @ViewChild('contextMenu', { static: false })
   menuElement: ElementRef<HTMLElement>;
 
   showMenu(e: MouseEvent, delay) {
-    this.show = false;
+    this.show = true;
     e.preventDefault();
     this.menuElement.nativeElement.style.left = e.pageX + 'px';
     this.menuElement.nativeElement.style.top = e.pageY + 'px';
     clearTimeout(this.timerId);
 
-    this.delayStarted = true;
+    this.loaded = false;
     this.timerId = setTimeout(() => {
-      this.show = true;
-      this.delayStarted = false;
+      this.loaded = true;
     }, delay);
   }
 }

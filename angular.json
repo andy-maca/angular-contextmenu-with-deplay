@@ -54,7 +54,7 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "demo:build:production"
+              "browserTarget": "demo:build:development"
             }
           }
         },

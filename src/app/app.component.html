@@ -1,4 +1,4 @@
-<div [style.cursor]="delayStarted ? 'wait' : 'auto'">
+<div>
   <p>{{name}}</p>
   <div class="menu-container" (contextmenu)="showMenu($event, 0)">0ms</div>
   <div class="menu-container" (contextmenu)="showMenu($event, 500)">500ms</div>
@@ -10,8 +10,13 @@
   </div>
 
   <div #contextMenu class="contextmenu" [hidden]="!show">
-    <ul>
-      <li *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]">item{{i}}</li>
-    </ul>
+    <div class="menucontent">
+      <ul *ngIf="loaded; else loading">
+        <li *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]">item{{i}}</li>
+      </ul>
+      <ng-template #loading>
+        <img src="/assets/loading.gif" width="40" height="40"/>
+      </ng-template>  
+    </div>
   </div>
 </div>
