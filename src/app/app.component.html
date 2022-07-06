@@ -1,5 +1,5 @@
 <div [style.cursor]="delayStarted ? 'wait' : 'auto'">
-  <hello name="{{ name }}"></hello>
+  <p>{{name}}</p>
   <div class="menu-container" (contextmenu)="showMenu($event, 0)">0ms</div>
   <div class="menu-container" (contextmenu)="showMenu($event, 500)">500ms</div>
   <div class="menu-container" (contextmenu)="showMenu($event, 1000)">
@@ -11,13 +11,7 @@
 
   <div #contextMenu class="contextmenu" [hidden]="!show">
     <ul>
-      <li>item1</li>
-      <li>item2</li>
-      <li>item3</li>
-      <li>item4</li>
-      <li>item5</li>
-      <li>item6</li>
-      <li>item7</li>
+      <li *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]">item{{i}}</li>
     </ul>
   </div>
 </div>

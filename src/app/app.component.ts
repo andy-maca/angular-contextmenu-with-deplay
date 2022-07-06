@@ -15,7 +15,7 @@ export class AppComponent {
   name = 'Right click on the black rectangle to show context menu';
   show = false;
   delayStarted = false;
-  private timerId = 0;
+  private timerId;
 
   @HostListener('window:click', ['$event'])
   onclick(e: MouseEvent) {
