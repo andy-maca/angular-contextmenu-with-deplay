@@ -1,9 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -27,8 +22,10 @@ export class AppComponent {
   menuElement: ElementRef<HTMLElement>;
 
   showMenu(e: MouseEvent, delay) {
-    this.show = true;
     e.preventDefault();
+    e.stopPropagation();
+    this.show = true;
+
     this.menuElement.nativeElement.style.left = e.pageX + 'px';
     this.menuElement.nativeElement.style.top = e.pageY + 'px';
     clearTimeout(this.timerId);
@@ -37,5 +34,6 @@ export class AppComponent {
     this.timerId = setTimeout(() => {
       this.loaded = true;
     }, delay);
+    return false;
   }
 }
